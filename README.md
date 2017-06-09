@@ -12,7 +12,11 @@ The base container starts an SSH server, so you can read more about that in [its
 I usually start it with something like:
 
 ```bash
-docker run -d -e AUTHORIZED_GH_USERS="dpetersen" -p 0.0.0.0:31981:22 -v ~/development/ruby:/root/ruby dpetersen/dev-container-ruby:latest
+docker run -d \
+  -e AUTHORIZED_GH_USERS="dpetersen" \
+  -p 0.0.0.0:31981:22 \
+  -v `pwd`:/home/dev/ruby \
+  dpetersen/dev-container-ruby:latest
 ```
 I'd advise you to set up an SSH alias as [explained here](https://github.com/dpetersen/dev-container-base#connecting).
 
